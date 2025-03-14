@@ -1,18 +1,31 @@
 {% extends 'base.html' %} 
 {% load static %} 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/cats/grocery-index.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/groceries/grocery-index.css' %}"/>
 {% endblock %} 
 {% block content %}
 
 <section class="page-header">
   <h1>Your Groceries</h1>
   <img src="{% static 'images/banana.jpg' %}" alt="A humanoid banana" />
-  <img src="{% static 'images/pear.jpg' %}" alt="A humanoid pear" />
   <img src="{% static 'images/kiwi.jpg' %}" alt="A humanoid kiwi" />
+  <img src="{% static 'images/pear.jpg' %}" alt="A humanoid pear" />
 </section>
 
 <section class="grocery-list">
+    
+    {% for grocery in groceries  %}
+      <ul>
+        <h3 class="grocery-name">{{ grocery.name }} {{ grocery.quantity }} </h3>
+        <div class="grocery-actions">
+        </div>
+        <a href="{% url 'grocery-update' grocery.id %}" class="btn warn">Edit</a>
+        <a href="{% url 'grocery-delete' grocery.id %}" class="btn danger">Delete</a>
+      </ul>
+    {% endfor %}
 </section>
 
+
+
 {% endblock %}
+

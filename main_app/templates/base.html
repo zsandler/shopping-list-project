@@ -24,11 +24,19 @@
         <ul>
 
 
-{% if user.is_authenticated %}
+{% if not user.is_authenticated %}
 <li><a href="{% url 'sign-up' %}">Sign Up</a></li>
 
 {% else %}
 <li><a href="{% url 'groceries-index' %}">Your Groceries</a></li>
+<li><a href="{% url 'grocery-create' %}">Add Grocery</a></li>
+<li>
+  <form action="{% url 'logout' %}" id="logout=form" method="post">
+    {% csrf_token %}
+    <button type="submit">Log Out</button>
+  </form>
+</li>
+
     
 {% endif %}
     
@@ -38,11 +46,15 @@
     </header>
     <main>
      {% block content %} 
-        <section>
-            <form action="" method="post" class="sign-in-form">
-                {% csrf_token %}
-
-            </form>
+        <section class="grocery-list">
+        <ul>
+          <h3>{{ grocery.name }}</h3>
+          <h5>{{ grocery.quantity }}</h5>
+        </ul>
+        <div class="list-actions">
+          <a href="{% url 'grocery-update' grocery.id %}" class="btn warn">Edit</a>
+        <a href="{% url 'grocery-delete' grocery.id %}" class="btn danger">Delete</a>
+        </div>
         </section>
      {% endblock %}
      </main>

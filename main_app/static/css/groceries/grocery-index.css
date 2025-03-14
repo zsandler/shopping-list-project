@@ -1,3 +1,13 @@
+.page-header img{
+  max-width: 100px;
+  max-height: 100px;    
+}
+
+.header-logo-container img{
+  max-width: 100px;
+  max-height: 100px;    
+}
+
 .card-container {
     padding: 0 30px;
     display: flex;

@@ -4,6 +4,10 @@ from .models import Grocery
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # class Grocery:
 #     def __init__(self, name, quantity):
@@ -18,6 +22,23 @@ from django.contrib.auth.views import LoginView
 
 class Home(LoginView):
     template_name = 'home.html'
+
+class GroceryCreate(LoginRequiredMixin, CreateView):
+    model = Grocery 
+    fields = '__all__'
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    success_url = '/groceries/'
+
+class GroceryUpdate(LoginRequiredMixin, UpdateView):
+    model = Grocery
+    fields = ['quantity']
+    success_url = '/groceries/'
+
+class GroceryDelete(LoginRequiredMixin, DeleteView):
+    model = Grocery
+    success_url = '/groceries/'
 
 
 # def home(request):
