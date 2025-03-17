@@ -5,18 +5,11 @@
 {% endblock %}
 {% block content %}
 
-<!-- <section class="logo-container">
-  <div class="cat-container">
-    <img src="{% static 'images/splash.svg' %}" alt="The Cat Collector Cat" />
-  </div>
-  <img src="{% static 'images/logotype.svg' %}" alt="Text reads: Cat Collector" />
-</section> -->
-
-  <form action="{% url 'home' %}" method="post" class="sign-in">
-    <h2>Sign In</h2>
-    {% csrf_token %} {{ form.as_p}}
-    <input type="hidden" name="next" value="{{ next }}">
-    <button action="submit" class="btn submit">Sign In</button>
-  </form>
+<form action="{% url 'home' %}" method="post" class="sign-in">
+  <h2>Sign In</h2>
+  {% csrf_token %} {{ form.as_p}}
+  <input type="hidden" name="next" value="{{ next }}">
+  <button action="submit" class="btn submit">Sign In</button>
+</form>
 
 {% endblock %}

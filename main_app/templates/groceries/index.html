@@ -1,8 +1,8 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/groceries/grocery-index.css' %}"/>
-{% endblock %} 
+<link rel="stylesheet" href="{% static 'css/groceries/grocery-index.css' %}" />
+{% endblock %}
 {% block content %}
 
 <section class="page-header">
@@ -13,20 +13,19 @@
 </section>
 
 <section class="grocery-list">
-    
-    {% for grocery in groceries  %}
-      <ul>
-        <h3 class="grocery-name">Name: {{ grocery.name }} </h3> 
-        <h5 class="grocery-quantity">Qty: {{ grocery.quantity }} </h5>
-        <div class="grocery-actions">
-        </div>
-        <a href="{% url 'grocery-update' grocery.id %}" class="btn warn">Edit</a>
-        <a href="{% url 'grocery-delete' grocery.id %}" class="btn danger">Delete</a>
-      </ul>
-    {% endfor %}
+
+  {% for grocery in groceries %}
+  <ul>
+    <h3 class="grocery-name">Name: {{ grocery.name }} </h3>
+    <h5 class="grocery-quantity">Qty: {{ grocery.quantity }} </h5>
+    <div class="grocery-actions">
+    </div>
+    <a href="{% url 'grocery-update' grocery.id %}" class="btn warn">Edit</a>
+    <a href="{% url 'grocery-delete' grocery.id %}" class="btn danger">Delete</a>
+  </ul>
+  {% endfor %}
 </section>
 
 
 
 {% endblock %}
-

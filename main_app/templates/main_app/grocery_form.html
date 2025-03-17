@@ -7,15 +7,15 @@
 
 
 {% block content %}
-    <div class="page-header">
-        <h1>Add Grocery</h1>
-        <img src="{% static 'images/pear.jpg' %}" alt="a happy pear" />
-    </div>
+<div class="page-header">
+    <h1>Add Grocery</h1>
+    <img src="{% static 'images/pear.jpg' %}" alt="a happy pear" />
+</div>
 
-    <form action="" method="post" class="form-container">
-        {% csrf_token %}
-            {{ form.as_p }}
-        <button type="submit" class="btn submit">Add!</button>
-    </form>
+<form action="" method="post" class="form-container">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn submit">Submit</button>
+</form>
 
 {% endblock content %}

@@ -9,17 +9,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-# class Grocery:
-#     def __init__(self, name, quantity):
-#         self.name = name
-#         self.quantity = quantity
-
-# groceries = [
-#     Grocery('Apple', 1),
-#     Grocery('Pear', 3),
-#     Grocery('Junk Food', 4),
-# ]
-
 class Home(LoginView):
     template_name = 'home.html'
 
@@ -39,10 +28,6 @@ class GroceryUpdate(LoginRequiredMixin, UpdateView):
 class GroceryDelete(LoginRequiredMixin, DeleteView):
     model = Grocery
     success_url = '/groceries/'
-
-
-# def home(request):
-#     return render(request, 'home.html')
 
 def signup(request):
     error_message = ''
