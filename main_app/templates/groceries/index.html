@@ -7,7 +7,7 @@
 
 <section class="page-header">
   <h1>Your Groceries</h1>
-  <img src="{% static 'images/banana.jpg' %}" alt="A humanoid banana" />
+  <img src="{% static 'images/apple.jpg' %}" alt="A humanoid apple" />
   <img src="{% static 'images/kiwi.jpg' %}" alt="A humanoid kiwi" />
   <img src="{% static 'images/pear.jpg' %}" alt="A humanoid pear" />
 </section>
@@ -16,7 +16,8 @@
     
     {% for grocery in groceries  %}
       <ul>
-        <h3 class="grocery-name">{{ grocery.name }} {{ grocery.quantity }} </h3>
+        <h3 class="grocery-name">Name: {{ grocery.name }} </h3> 
+        <h5 class="grocery-quantity">Qty: {{ grocery.quantity }} </h5>
         <div class="grocery-actions">
         </div>
         <a href="{% url 'grocery-update' grocery.id %}" class="btn warn">Edit</a>

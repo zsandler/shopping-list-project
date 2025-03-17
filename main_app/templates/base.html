@@ -16,7 +16,7 @@
 
 <body>
   <header>
-    <div class="header">
+    <div class="header-logo-container">
       <h1>Welcome to Grocery Shop!</h1>
       <a href="/">
         <img src="{% static 'images/grocery-shop-logo.jpg' %}" alt="The Grocery Shop Logo" />
@@ -25,16 +25,16 @@
     <nav class="navbar">
       <ul>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'groceries-index' %}">Your Groceries</a></li>
-        <li><a href="{% url 'grocery-create' %}">Add Grocery</a></li>
+        <li><a href="{% url 'groceries-index' %}" class="nav-btn">Your Groceries</a></li>
+        <li><a href="{% url 'grocery-create' %}" class="nav-btn">Add Grocery</a></li>
         <li>
           <form action="{% url 'logout' %}" id="logout=form" method="post">
             {% csrf_token %}
-            <button type="submit">Log Out</button>
+            <button type="submit" class="logout-btn">Log Out</button>
           </form>
         </li>
         {% else %}
-        <li><a href="{% url 'sign-up' %}">Sign Up</a></li>
+        <li><a href="{% url 'sign-up' %}" class="nav-btn">Sign Up</a></li>
         {% endif %}
 
         <!-- <li><a href="/about">About</a></li> -->

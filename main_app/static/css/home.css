@@ -1,0 +1,22 @@
+.sign-in h2 {
+    margin: 20px;
+}
+
+form.sign-in label {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.sign-in input,
+.sign-in textarea
+.sign-in select {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+  .btn.submit {
+    color:black;
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 20px;
+  }

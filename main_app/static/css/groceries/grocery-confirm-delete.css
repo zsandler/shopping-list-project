@@ -1,0 +1,14 @@
+.page-header {
+    margin: 20px
+}
+
+.btn.secondary {
+    color:black;
+    background-color: white;
+    margin: 20px;
+  }
+  
+  .btn.danger {
+    color: white;
+    background-color: red;
+  }

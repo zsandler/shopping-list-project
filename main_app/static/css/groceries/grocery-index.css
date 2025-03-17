@@ -8,5 +8,23 @@
   max-height: 100px;    
 }
 
+.grocery-name {
+  margin: 20px;
+  font-size: 20px;
+}
 
-  
+.grocery-quantity {
+  margin: 20px;
+  font-size: 20px;
+}
+
+.btn.warn {
+  color:black;
+  background-color: white;
+  margin: 20px;
+}
+
+.btn.danger {
+  color:black;
+  background-color: white;
+}
