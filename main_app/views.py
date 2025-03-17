@@ -25,7 +25,7 @@ class Home(LoginView):
 
 class GroceryCreate(LoginRequiredMixin, CreateView):
     model = Grocery 
-    fields = '__all__'
+    fields = ['name', 'quantity',]
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -63,6 +63,6 @@ def signin(request):
     return render(request, 'groceries-index.html')
 
 def grocery_index(request):
-    groceries = Grocery.objects.all()
+    groceries = Grocery.objects.filter(user=request.user)
     return render(request, 'groceries/index.html', {'groceries' : groceries})
 
